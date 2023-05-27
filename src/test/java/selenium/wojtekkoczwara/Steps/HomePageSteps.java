@@ -13,7 +13,7 @@ public class HomePageSteps extends BaseStep {
     public HomePageSteps goToTabByName(ThumbnailNames thumbnailName) {
 
         at(Thumbnail.class).getThumbnailByName(thumbnailName).click();
-
+        switchTabs();
         return this;
     }
 }

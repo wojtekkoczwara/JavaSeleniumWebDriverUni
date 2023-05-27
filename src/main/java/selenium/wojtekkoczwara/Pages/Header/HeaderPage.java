@@ -15,7 +15,6 @@ public class HeaderPage extends BasePage {
     @FindBy(id="nav-title")
     private WebElement headerTitle;
 
-
     public HeaderPage(WebDriver driver) {
         super(driver, By.className("navbar-header"));
         this.waitToLoad();

@@ -4,19 +4,20 @@ import lombok.SneakyThrows;
 import org.openqa.selenium.WebDriver;
 import selenium.wojtekkoczwara.Pages.BasePage;
 
-public class BaseStep {
+public abstract class BaseStep {
 
     public WebDriver driver;
     public BaseStep(WebDriver driver) {
         this.driver = driver;
     }
 
-//    public void switchTabs() {
-//        var oldTab = driver.getWindowHandle();
-//    }
+    public void switchTabs() {
+        driver.getWindowHandles().forEach(tab -> driver.switchTo().window(tab));
+    }
+
 
     @SneakyThrows
     public <T extends BasePage> T at(Class<T> pageType) {
-        return pageType.getDeclaredConstructor(driver.getClass()).newInstance(driver);
+        return pageType.getDeclaredConstructor(WebDriver.class).newInstance(driver);
     }
 }
