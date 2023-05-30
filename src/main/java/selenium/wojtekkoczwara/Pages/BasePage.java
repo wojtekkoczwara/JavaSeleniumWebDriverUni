@@ -72,5 +72,9 @@ public abstract class BasePage {
         throw new InvalidArgumentException("Element should be visible text, value or int ");
     }
 
+    public void waitForElementToBeHidden(WebElement elementToBeHidden) {
+        wait.until(ExpectedConditions.invisibilityOf(elementToBeHidden));
+    }
+
     public abstract void waitToLoad();
 }

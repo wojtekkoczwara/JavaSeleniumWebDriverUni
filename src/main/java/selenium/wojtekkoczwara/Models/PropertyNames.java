@@ -7,5 +7,7 @@ public enum PropertyNames {
     firstName,
     lastName,
     email,
-    comments
+    comments,
+    incorrectUserName,
+    incorrectPassword
 }
