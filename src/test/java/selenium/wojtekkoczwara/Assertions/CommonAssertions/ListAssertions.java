@@ -15,7 +15,7 @@ public class ListAssertions extends BaseAssertion {
 
     public ListAssertions AssertListContainsAnotherList(List<String> webDataList, List<String> validationList) {
         SoftAssertions.assertSoftly( x -> {
-            x.assertThat(validationList).asList().isIn(webDataList.stream().map(String::toLowerCase).toList());
+            x.assertThat(webDataList.stream().map(String::toLowerCase).toList()).asList().containsAll(validationList);
         });
         return this;
     }
